@@ -1,5 +1,3 @@
-use num_traits::WrappingAdd;
-
 /// Compute a + b + carry, returning the result and the new carry over.
 #[inline(always)]
 pub const fn adc(a: u64, b: u64, carry: u64) -> (u64, u64) {
