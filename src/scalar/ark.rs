@@ -7,12 +7,12 @@ use ark_serialize::{
     CanonicalDeserialize, CanonicalDeserializeWithFlags, CanonicalSerialize,
     CanonicalSerializeWithFlags, Compress, Flags, Read, SerializationError, Valid, Validate, Write,
 };
+use core::iter;
 use core::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Sub, SubAssign};
 use core::str::FromStr;
 use ff::{Field, PrimeField};
 use num_bigint::BigUint;
 use num_traits::Num;
-use core::iter;
 use subtle::ConstantTimeEq;
 
 use crate::Scalar;
