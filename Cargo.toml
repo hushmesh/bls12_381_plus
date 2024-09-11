@@ -14,14 +14,18 @@ homepage = "https://github.com/mikelodder7/bls12_381_plus"
 license = "MIT/Apache-2.0"
 name = "bls12_381_plus"
 repository = "https://github.com/mikelodder7/bls12_381_plus"
-version = "0.8.18"
+version = "0.8.1000" # hack to allow inclusion in no_std crate...
 edition = "2021"
 
 [package.metadata.docs.rs]
 rustdoc-args = [ "--html-in-header", "katex-header.html" ]
 
-[lib]
-crate-type = ["cdylib", "rlib"]
+# NOTE(jed, 2024-09-11):
+# Built as a cdylib, this packge fails because it includes no allocator, and breaks builds of
+# no_std crates that depend upon it.  Cargo seems to offer no way to skip this, so I've forked
+# the crate just to remove `cdylib`.
+#[lib]
+#crate-type = ["cdylib", "rlib"]
 
 [dev-dependencies]
 ark-poly = "0.4.2"
